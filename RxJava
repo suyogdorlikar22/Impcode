@@ -1,0 +1,13 @@
+ //===============RxJava Retrofite==============
+ 
+ https://jsonplaceholder.typicode.com/posts?userId=1
+
+       @GET("posts")
+    Flowable<List<Post>> getPostFromUser(
+            @Query("userId") int id);              
+
+
+    https://jsonplaceholder.typicode.com/users?id=1
+
+      @GET("users/{id}")
+    Flowable<User> getUser(@Path("id") int id );
