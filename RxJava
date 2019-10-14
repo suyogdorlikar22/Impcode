@@ -11,3 +11,14 @@
 
       @GET("users/{id}")
     Flowable<User> getUser(@Path("id") int id );
+
+
+   //======================= API List Start====================
+        public static final String BASE_URL = "https://www.breathefree.com/";
+        //    =============================== Login ==========================
+        public static final String login = "user-login/user/login.json";
+        //======================= API List End====================
+
+ @Headers("Content-Type: application/json")
+    @POST(Constants.APIList.login)
+    Flowable<LoginResponse> userNormalLogin(@Body LoginInput body);
