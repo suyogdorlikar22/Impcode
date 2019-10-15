@@ -14,9 +14,9 @@
 
 
    //======================= API List Start====================
-        public static final String BASE_URL = "https://www.breathefree.com/";
+        public static final String BASE_URL = "https://jsonplaceholder.typicode.com";
         //    =============================== Login ==========================
-        public static final String login = "user-login/user/login.json";
+        public static final String login = "user/login.json";
         //======================= API List End====================
 
  @Headers("Content-Type: application/json")
