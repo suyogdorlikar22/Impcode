@@ -21,4 +21,4 @@
 
  @Headers("Content-Type: application/json")
     @POST(Constants.APIList.login)
-    Flowable<LoginResponse> userNormalLogin(@Body LoginInput body);
+    Flowable<LoginResponse> userLogin(@Body LoginInput body);
