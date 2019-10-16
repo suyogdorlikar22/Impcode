@@ -24,11 +24,11 @@
                 android:minHeight="?attr/actionBarSize">
 
                 <ImageView
-                    android:id="@+id/iv_logo"
+                    android:id="@+id/logo"
                     android:layout_width="@dimen/_120sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/bf_logo_grey" />
+                    android:background="@drawable/logo" />
 
 
                 <RelativeLayout
@@ -42,7 +42,7 @@
                     android:paddingBottom="@dimen/_8sdp">
 
                     <ImageView
-                        android:id="@+id/iv_cancel"
+                        android:id="@+id/ivCancel"
                         android:layout_width="@dimen/_20sdp"
                         android:layout_height="@dimen/_20sdp"
                         android:background="@drawable/logo" />
@@ -108,7 +108,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/asthma"
+            android:id="@+id/data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFF"
@@ -139,176 +139,7 @@
             android:layout_width="match_parent"
             android:layout_height="0.54dp"
             android:background="#d1d1d1" />
-
-        <RelativeLayout
-            android:id="@+id/medical_tracker"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_12sdp"
-            android:paddingBottom="@dimen/_12sdp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="@dimen/_3sdp"
-                android:gravity="center_vertical"
-                android:text="@string/medical"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_12sdp" />
-
-            <ImageView
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/_3sdp"
-                android:background="@drawable/ic_right_arrow" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.54dp"
-            android:background="#d1d1d1" />
-
-        <RelativeLayout
-            android:id="@+id/community"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_12sdp"
-            android:paddingBottom="@dimen/_12sdp">
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="@dimen/_3sdp"
-                android:gravity="center_vertical"
-                android:text="@string/blogs"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_12sdp" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.54dp"
-            android:background="#d1d1d1" />
-
-        <RelativeLayout
-            android:id="@+id/asthma_guide"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_12sdp"
-            android:paddingBottom="@dimen/_12sdp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="@dimen/_3sdp"
-                android:gravity="center_vertical"
-                android:text="@string/asthmaGuide"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_12sdp" />
-
-            <ImageView
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/_3sdp"
-                android:background="@drawable/ic_right_arrow" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.54dp"
-            android:background="#d1d1d1" />
-
-        <RelativeLayout
-            android:id="@+id/asthma_fighter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="@dimen/_12sdp"
-            android:paddingBottom="@dimen/_12sdp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="@dimen/_3sdp"
-                android:gravity="center_vertical"
-                android:text="@string/asthmaFigher"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_12sdp" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.54dp"
-            android:background="#d1d1d1" />
-
-
-
-
-        <RelativeLayout
-            android:id="@+id/profile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFF"
-            android:paddingTop="@dimen/_12sdp"
-            android:paddingBottom="@dimen/_12sdp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="@dimen/_3sdp"
-                android:gravity="center_vertical"
-                android:text="@string/profile"
-                android:textColor="@color/colorBlack"
-                android:textSize="@dimen/_12sdp" />
-
-            <ImageView
-                android:layout_width="@dimen/_15sdp"
-                android:layout_height="@dimen/_15sdp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/_3sdp"
-                android:background="@drawable/ic_right_arrow" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.54dp"
-            android:background="#d1d1d1" />
-
+      
     </LinearLayout>
-
-<!--    <include-->
-<!--        android:id="@+id/asthma_lay"-->
-<!--        layout="@layout/asthma"-->
-<!--        android:visibility="gone" />-->
-
-<!--    <include-->
-<!--        android:id="@+id/asthma_guide_lay"-->
-<!--        layout="@layout/asthma_guide"-->
-<!--        android:visibility="gone" />-->
-
-
-<!--    <include-->
-<!--        android:id="@+id/medical_history_lay"-->
-<!--        layout="@layout/medical_history_tracker"-->
-<!--        android:visibility="gone" />-->
-
-<!--    <include-->
-<!--        android:id="@+id/profile_lay"-->
-<!--        layout="@layout/profile"-->
-<!--        android:visibility="gone" />-->
-
-<!--    <include-->
-<!--        android:id="@+id/settings_lay"-->
-<!--        layout="@layout/settings"-->
-<!--        android:visibility="gone" />-->
 
 </RelativeLayout>
