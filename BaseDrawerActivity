@@ -1,5 +1,5 @@
 public abstract class BaseDrawerActivity extends DaggerAppCompatActivity implements View.OnClickListener {
-    RelativeLayout profile, myAsthma, asthmaGuide, medicalTracker,asthmaFighter,home;
+    RelativeLayout profile,home;
     DrawerList list;
     private static final String TAG = BaseDrawerActivity.class.getSimpleName();
     View listHeaderView;
@@ -38,12 +38,10 @@ public abstract class BaseDrawerActivity extends DaggerAppCompatActivity impleme
         LayoutInflater inflater = getLayoutInflater();
         listHeaderView = inflater.inflate(R.layout.header_list, null, false);
         profile = listHeaderView.findViewById(R.id.profile);
-        myAsthma = listHeaderView.findViewById(R.id.asthma);
-        asthmaGuide = listHeaderView.findViewById(R.id.asthma_guide);
-        asthmaFighter = listHeaderView.findViewById(R.id.asthma_fighter);
+      
         ivCancel = listHeaderView.findViewById(R.id.iv_cancel);
         closeDrawer = listHeaderView.findViewById(R.id.closeDrawer);
-        medicalTracker = listHeaderView.findViewById(R.id.medical_tracker);
+        
         home = listHeaderView.findViewById(R.id.homelay);
 
         setOnClickListener();
