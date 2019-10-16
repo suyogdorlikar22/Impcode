@@ -32,8 +32,8 @@ public class DrawerCustomAdapter extends BaseAdapter {
             convertView = lInflater.inflate(R.layout.listview_with_text_image, parent, false);
 
 
-         /*   listViewHolder.textInListView = (TextView) convertView.findViewById(R.id.textView);
-            listViewHolder.imageInListView = (ImageView) convertView.findViewById(R.id.imageView);
+         /*   listViewHolder.imageListView = (TextView) convertView.findViewById(R.id.textView);
+            listViewHolder.imageListView = (ImageView) convertView.findViewById(R.id.imageView);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 */
 
@@ -63,7 +63,7 @@ public class DrawerCustomAdapter extends BaseAdapter {
 
     static class ViewHolder {
 
-        TextView asthma;
-        ImageView imageInListView;
+        TextView textview;
+        ImageView imageListView;
     }
 }
