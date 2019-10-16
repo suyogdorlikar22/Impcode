@@ -1,0 +1,213 @@
+public abstract class BaseDrawerActivity extends DaggerAppCompatActivity implements View.OnClickListener {
+    RelativeLayout profile, myAsthma, asthmaGuide, medicalTracker,asthmaFighter,home;
+    DrawerList list;
+    private static final String TAG = BaseDrawerActivity.class.getSimpleName();
+    View listHeaderView;
+    ImageView ivCancel;
+    RelativeLayout closeDrawer;
+    FrameLayout frameLayout;
+    Context context;
+    Toolbar toolbar;
+    DrawerLayout mDrawerLayout;
+    private ListView mDrawerList = null;
+    private ActionBarDrawerToggle mDrawerToggle = null;
+
+    @Inject
+    ViewModelProviderFactory providerFactory;
+
+    @Inject
+    SessionManager sessionManager;
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_base);
+        subcribeObserver();
+
+
+        initilization();
+    }
+
+    private void initilization() {
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        mDrawerList = findViewById(R.id.left_drawer);
+        toolbar = findViewById(R.id.toolbar);
+        frameLayout = findViewById(R.id.activity_frame);
+        mDrawerLayout.setDrawerShadow(R.mipmap.ic_launcher, GravityCompat.START);
+        LayoutInflater inflater = getLayoutInflater();
+        listHeaderView = inflater.inflate(R.layout.header_list, null, false);
+        profile = listHeaderView.findViewById(R.id.profile);
+        myAsthma = listHeaderView.findViewById(R.id.asthma);
+        asthmaGuide = listHeaderView.findViewById(R.id.asthma_guide);
+        asthmaFighter = listHeaderView.findViewById(R.id.asthma_fighter);
+        ivCancel = listHeaderView.findViewById(R.id.iv_cancel);
+        closeDrawer = listHeaderView.findViewById(R.id.closeDrawer);
+        medicalTracker = listHeaderView.findViewById(R.id.medical_tracker);
+        home = listHeaderView.findViewById(R.id.homelay);
+
+        setOnClickListener();
+
+        mDrawerList.addHeaderView(listHeaderView);
+        list = new DrawerList();
+        context = BaseDrawerActivity.this;
+
+        final List<ItemObject> listViewItems = DrawerList.drawer();
+        listViewItems.clear();
+        mDrawerList.setAdapter(new DrawerCustomAdapter(getApplicationContext(), listViewItems));
+
+        mDrawerToggle = new ActionBarDrawerToggle(this,
+                mDrawerLayout, toolbar,
+                0, 0) {
+            public void onDrawerOpened(View view) {
+                invalidateOptionsMenu();
+            }
+
+            public void onDrawerClosed(View view) {
+                invalidateOptionsMenu();
+            }
+        };
+        mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+    }
+
+    private void setOnClickListener() {
+        closeDrawer.setOnClickListener(this);
+        ivCancel.setOnClickListener(this);
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(BaseDrawerActivity.this, "home", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+    @SuppressLint("WrongConstant")
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.iv_cancel:
+                mDrawerLayout.closeDrawer(Gravity.START);
+                break;
+
+            case R.id.closeDrawer:
+                mDrawerLayout.closeDrawer(Gravity.START);
+                break;
+
+
+        }
+    }
+
+
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
+
+        for (int index = 0; index < menu.size(); index++) {
+            MenuItem menuItem = menu.getItem(index);
+            if (menuItem != null) {
+                // hide the menu items if the drawer is open
+                menuItem.setVisible(!drawerOpen);
+            }
+        }
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void logoutUser(){
+
+
+//        viewModel.logoutFromUser().observe(this, new Observer<Resource<LogoutResponse>>() {
+//            @Override
+//            public void onChanged(Resource<LogoutResponse> logoutResponseResource) {
+//                if (logoutResponseResource.status!=null){
+//                    switch (logoutResponseResource.status){
+//                        case SUCCESS:
+//                            showProgressbar(false);
+//                            Log.d(TAG, "onChanged: Logout"+logoutResponseResource.data.getNodes().get(0).getNode().getTitle());
+//
+//                            navLoginScreen();
+//                            break;
+//
+//                        case ERROR:;
+//                        showProgressbar(false);
+//                            Log.d(TAG, "onChanged: "+logoutResponseResource.message);
+//                            break;
+//
+//                        case LOADING:
+//                        showProgressbar(true);
+//                            break;
+//                    }
+//                }
+//            }
+//        });
+
+
+    }
+
+     public void navLoginScreen(){
+        startActivity(new Intent(this,AuthActivity.class));
+     };
+
+    private void showProgressbar(boolean isVisibile){
+        if (isVisibile){
+            Utils.showProgressBar(this);
+        }else
+            Utils.hideProgressbar();
+    }
+
+    private void subcribeObserver() {
+        sessionManager.getAuthUser().observe(this, new Observer<AuthResource<LoginResponse>>() {
+            @Override
+            public void onChanged(AuthResource<LoginResponse> loginResponseAuthResource) {
+                if (loginResponseAuthResource!=null){
+                    switch (loginResponseAuthResource.status){
+                        case LOADING:
+                            break;
+
+                        case ERROR:
+                            Log.d(TAG,"On change "+loginResponseAuthResource.message);
+                            break;
+
+                        case AUTHENTICATED:
+                            Log.d(TAG, "onChanged: "+loginResponseAuthResource.data.getUser().getMail());
+                            break;
+
+                        case NOT_AUTHENTICATED:
+                            Log.d(TAG, "onChanged: NOT_AUTHENTICATED");
+                            navLoginScreen();
+
+                            break;
+                    }
+                }
+            }
+        });
+    }
+
+}
+
+
