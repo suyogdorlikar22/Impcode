@@ -4,6 +4,7 @@ public class DrawerList {
 
         List<ItemObject> listViewItems = new ArrayList<ItemObject>();
         listViewItems.add(new ItemObject("HomeModel", 0));
+        listViewItems.add(new ItemObject("DataName", R.drawable.ic_arrow));
 
 
         return listViewItems;
