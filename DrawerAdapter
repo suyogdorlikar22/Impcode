@@ -63,7 +63,7 @@ public class DrawerCustomAdapter extends BaseAdapter {
 
     static class ViewHolder {
 
-        TextView textview;
-        ImageView imageListView;
+ //       TextView textview;
+  //      ImageView imageListView;
     }
 }
